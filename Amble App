@@ -1,0 +1,304 @@
+//starting
+setScreen("Menu");
+hideElement("input-new");
+hideElement("enter");
+hideElement("notif");
+hideElement("notif2");
+hideElement("notif3");
+var familyScore = 8;
+//challenges menu and toolbar
+onEvent("TrophyIcon", "click", function(event) {
+  console.log("challenges clicked!");
+  setScreen("Challenges");
+});
+onEvent("Trophy-Feed", "click", function(event) {
+  console.log("challenges clicked!");
+  setScreen("Challenges");
+});
+onEvent("Trophy-Challenges", "click", function(event) {
+  console.log("challenges clicked!");
+  setScreen("Challenges");
+});
+onEvent("Trophy-Stats", "click", function(event) {
+  console.log("challenges clicked!");
+  setScreen("Challenges");
+});
+onEvent("Trophy-Walk", "click", function(event) {
+  console.log("challenges clicked!");
+  setScreen("Challenges");
+});
+//stats menu and toolbar
+onEvent("StatsIcon", "click", function(event) {
+  console.log("Stats clicked!");
+  setScreen("Stats");
+  hideElement("notif");
+  hideElement("notif2");
+  hideElement("notif3");
+});
+onEvent("Stats-Challenges", "click", function(event) {
+  console.log("Stats clicked!");
+  setScreen("Stats");
+  hideElement("notif");
+  hideElement("notif2");
+  hideElement("notif3");
+});
+onEvent("Stats-Feed", "click", function(event) {
+  console.log("Stats clicked!");
+  setScreen("Stats");
+  hideElement("notif");
+  hideElement("notif2");
+  hideElement("notif3");
+});
+onEvent("Stats-Stats", "click", function(event) {
+  console.log("Stats clicked!");
+  setScreen("Stats");
+  hideElement("notif");
+  hideElement("notif2");
+  hideElement("notif3");
+});
+onEvent("Stats-Walk", "click", function(event) {
+  console.log("Stats clicked!");
+  setScreen("Stats");
+  hideElement("notif");
+  hideElement("notif2");
+  hideElement("notif3");
+});
+//feed menu and toolbar
+onEvent("FriendsIcon", "click", function(event) {
+  console.log("feed clicked!");
+  setScreen("Feed");
+});
+onEvent("Friends-Challenges", "click", function(event) {
+  console.log("feed clicked!");
+  setScreen("Feed");
+});
+onEvent("Friends-Feed", "click", function(event) {
+  console.log("feed clicked!");
+  setScreen("Feed");
+});
+onEvent("Friends-Stats", "click", function(event) {
+  console.log("feed clicked!");
+  setScreen("Feed");
+});
+onEvent("Friends-Walk", "click", function(event) {
+  console.log("feed clicked!");
+  setScreen("Feed");
+});
+//walk menu and toolbar
+onEvent("WalkingIcon", "click", function(event) {
+  console.log("walk clicked!");
+  setScreen("Walk");
+});
+onEvent("Walk-Walk", "click", function(event) {
+  console.log("walk clicked!");
+  setScreen("Walk");
+});
+onEvent("Walk-Challenges", "click", function(event) {
+  console.log("walk clicked!");
+  setScreen("Walk");
+});
+onEvent("Walk-Feed", "click", function(event) {
+  console.log("walk clicked!");
+  setScreen("Walk");
+});
+onEvent("Walk-Stats", "click", function(event) {
+  console.log("walk clicked!");
+  setScreen("Walk");
+});
+//click on dragonflies challenge
+onEvent("DragonfliesChallenge", "click", function(event) {
+  console.log("dragonflies challenge clicked!");
+  setScreen("DragonfliesScreen");
+});
+//dragonflies screen arrow
+onEvent("dragonflies-arrow", "click", function(event) {
+  console.log("back to challenges");
+  setScreen("Challenges");
+});
+//fundraiser screen arrow
+onEvent("fundraiser-arrow", "click", function(event) {
+  console.log("back to challenges");
+  setScreen("Challenges");
+});
+//update # of dragonflies and update leaderboard
+onEvent("AddDragonflies", "click", function(event) {
+  console.log("AddDragonflies clicked!");
+  showElement("input-new");
+  showElement("enter");
+});
+onEvent("enter", "click", function(event) {
+  console.log("enter clicked");
+  familyScore = (familyScore + getNumber("input-new"));
+  setText("KhanNumber", familyScore);
+
+if (getNumber("SmithNumber")>getNumber("KhanNumber")) {
+  setPosition("SmithText", 5, 260);
+  setPosition("SmithNumber", 125, 260);
+  setPosition("KhanText", 5, 285);
+  setPosition("KhanNumber", 120, 285);
+  setText("SmithText", "1. Smith Family:");
+  setText("KhanText", "2. Khan Family:");
+  console.log("Smith is winning");
+}
+if(getNumber("SmithNumber")==getNumber("KhanNumber")) {
+    setPosition("SmithText", 5, 260);
+    setPosition("SmithNumber", 125, 260);
+    setPosition("KhanText", 5, 285);
+    setPosition("KhanNumber", 120, 285);
+    setText("SmithText", "1. Smith Family:");
+    setText("KhanText", "1. Khan Family:");
+    console.log("Smith and Khan are tied");
+  }
+if(getNumber("SmithNumber")<getNumber("KhanNumber")) {
+    setPosition("KhanText", 5, 260);
+    setPosition("KhanNumber", 125, 260);
+    setPosition("SmithText", 5, 285);
+    setPosition("SmithNumber", 125, 285);
+    setText("SmithText", "2. Smith Family:");
+    setText("KhanText", "1. Khan Family:");
+    console.log("Khan is winning");
+  }
+})
+//click on fundraiser
+onEvent("FundraiserChallenge", "click", function(event) {
+  setScreen("FundraiserScreen");
+  console.log("fundraiser screen");
+})
+
+//Nick and Leilani code
+
+//Allows maps to lead to "Trail"
+var miles2 = 0;
+var trailname 
+onEvent("pond", "click", function(event) {
+  console.log("pond clicked!");
+  setScreen("Trail");
+  setText("trailname", "Woodlake Pond");
+  setText("miles", "4 miles");
+  miles2 = miles2 - miles2 + 4;
+  showElement("pondtrail");
+  hideElement("roadstrail");
+});
+
+onEvent("roads", "click", function(event) {
+  console.log("roads clicked!");
+  setScreen("Trail");
+  setText("trailname", "Rocky Road");
+  setText("miles", "100 miles");
+  miles2 = miles2 - miles2 + 100;
+  showElement("roadstrail");
+  hideElement("pondtrail");
+
+});
+//Stats
+var miles = 0;
+console.log(miles=0);
+onEvent("done","click", function(event) {
+ miles = miles + miles2;
+ console.log(miles);
+});
+onEvent("done","click", function(event) {
+  setText("milescounter", miles);
+});
+onEvent("done", "click", function(event) {
+  console.log("trail complete!");
+  setScreen("Feed");
+  showElement("notif");
+  showElement("notif2");
+  showElement("notif3");
+});
+var ttcc = 0;
+onEvent("done","click", function(event) {
+  ttcc=ttcc+1
+});
+onEvent("done","click",function(event) {
+  setText("totaltrailscompletedcounter", ttcc);
+});
+
+//next buttons 
+onEvent("next", "click", function(event) {
+  console.log("next clicked!");
+  hideElement("pond");
+  showElement("roads");
+  hideElement("next");
+  showElement("next2");
+  showElement("back");
+});
+onEvent("next2", "click", function(event) {
+  console.log("next2 clicked!");
+  hideElement("roads");
+  showElement("back3");
+  hideElement("back2");
+});
+onEvent("back", "click", function(event) {
+  console.log("back clicked!");
+  hideElement("back");
+  showElement("pond");
+  hideElement("roads");
+  hideElement("back2");
+  hideElement("next2");
+  showElement("next");
+});
+
+//back buttons
+onEvent("back2", "click", function(event) {
+  console.log("back clicked!");
+  hideElement("back2");
+  hideElement("back");
+  hideElement("pond");
+  showElement("roads");
+  showElement("next2");
+  
+});
+
+onEvent("back3", "click", function(event) {
+  console.log("back3 clicked!");
+  showElement("roads");
+  showElement("next2");
+  showElement("back");
+  hideElement("back3");
+  hideElement("back2");
+});
+
+onEvent("back4", "click", function(event) {
+  console.log("back4 clicked!");
+  setScreen("Walk");
+});
+//school leaderboard 
+var nuevaScore = 41
+onEvent("done", "click", function(event) {
+  console.log("done clicked");
+  nuevaScore = nuevaScore + miles;
+  setText("NuevaNumber", nuevaScore);
+
+if (getNumber("AragonNumber")>getNumber("NuevaNumber")) {
+  setPosition("AragonText", 20, 235);
+  setPosition("AragonNumber", 135, 235);
+  setPosition("NuevaText", 20, 255);
+  setPosition("NuevaNumber", 170, 255);
+  setText("AragonText", "1. Aragon:");
+  setText("NuevaText", "2. Nueva School:");
+  console.log("Aragon is winning");
+}
+if(getNumber("AragonNumber")==getNumber("NuevaNumber")) {
+    setPosition("AragonText", 20, 235);
+    setPosition("AragonNumber", 135, 235);
+    setPosition("NuevaText", 20, 255);
+    setPosition("NuevaNumber", 170, 255);
+    setText("AragonText", "1. Aragon:");
+    setText("NuevaText", "1. Nueva School:");
+    setText("HillsdaleText", "2. Hillsdale:")
+    setText("CrystalText", "3. Crystal Springs:")
+    setText("MenloText", "4. Menlo:")
+    console.log("Nueva and Crystal are tied");
+  }
+if(getNumber("AragonNumber")<getNumber("NuevaNumber")) {
+    setPosition("NuevaText", 20, 235);
+    setPosition("NuevaNumber", 170, 235);
+    setPosition("AragonText", 20, 255);
+    setPosition("AragonNumber", 135, 255);
+    setText("AragonText", "2. Aragon:");
+    setText("NuevaText", "1. Nueva School:");
+    console.log("Nueva is winning");
+  }
+})
